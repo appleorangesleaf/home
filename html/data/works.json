@@ -1,0 +1,14 @@
+[
+{
+"title":"Task Manager",
+"description":"Simple productivity tool",
+"image":"images/tool.png",
+"link":"https://example.com"
+},
+{
+"title":"Drawing Tool",
+"description":"Canvas based drawing app",
+"image":"images/art.png",
+"link":"https://example.com"
+}
+]
