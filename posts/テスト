@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>テスト</title>
+
+<meta name="post-title" content="テスト">
+<meta name="post-date" content="2026-3-22">
+<meta name="post-summary" content="experiment">
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">Portfolio</div>
+
+<div class="nav-links">
+
+<a href="../index.html">Home</a>
+<a href="../works.html">Works</a>
+<a href="../blog.html">Blog</a>
+<a href="../about.html">About</a>
+
+</div>
+
+</nav>
+
+<main class="about">
+
+<h1>テスト</h1>
+
+<p>2026-3-22</p>
+
+<h1>ブログ！</h1><div>これが表示されたということは、うまくいったということ。</div>
+
+</main>
+
+<footer>
+
+<p>© Portfolio</p>
+
+</footer>
+
+</body>
+
+</html>
