@@ -42,6 +42,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <div id="tag-filter" class="tag-filter"></div>
 <div class="search-box">
 
+<div class="sort-box">
+
+<select onchange="sortPosts(this.value)">
+
+<option value="new">Newest</option>
+<option value="old">Oldest</option>
+<option value="title">Title</option>
+
+</select>
+
+</div>
+
 <input
 type="text"
 id="searchInput"
