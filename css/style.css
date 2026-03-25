@@ -478,3 +478,22 @@ border-color:transparent;
 box-shadow:0 4px 12px rgba(0,0,0,0.15);
 
 }
+
+.sort-box{
+
+text-align:center;
+margin-top:10px;
+
+}
+
+.sort-box select{
+
+padding:8px 12px;
+
+border-radius:8px;
+
+border:1px solid var(--border);
+
+background:white;
+
+}
