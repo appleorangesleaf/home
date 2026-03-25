@@ -124,4 +124,14 @@ card.style.display = "none"
 
 })
 
+/* active button */
+
+document
+.querySelectorAll(".tag-filter button")
+.forEach(btn=>btn.classList.remove("active"))
+
+document
+.querySelector(`.tag-filter button[onclick="filterTag('${tag}')"]`)
+?.classList.add("active")
+
 }
