@@ -40,6 +40,9 @@ doc.querySelector('meta[name="post-date"]')?.content || ""
 const summary =
 doc.querySelector('meta[name="post-summary"]')?.content || ""
 
+const tags =
+doc.querySelector('meta[name="post-tags"]')?.content || ""
+
 const card = document.createElement("div")
 
 card.className = "card"
@@ -51,6 +54,8 @@ card.innerHTML = `
 <p>${date}</p>
 
 <p>${summary}</p>
+
+<div class="tags">${tags}</div>
 
 <a href="posts/${file.name}">Read</a>
 
