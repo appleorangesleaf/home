@@ -14,18 +14,18 @@ document.getElementById("tag-filter")
 
 const allTags = new Set()
 
+let posts = []
+
 fetch(apiURL)
 
 .then(res => res.json())
 
 .then(files => {
 
-const htmlFiles =
-files.filter(file => file.name.endsWith(".html"))
+files
+.filter(file => file.name.endsWith(".html"))
 
-let loadedCount = 0
-
-htmlFiles.forEach(file => {
+.forEach(file => {
 
 fetch(file.download_url)
 
@@ -56,50 +56,79 @@ allTags.add(tag.trim())
 }
 })
 
-const card = document.createElement("div")
+posts.push({
+title,
+date,
+summary,
+tags,
+file:file.name
+})
 
-card.className = "card"
+renderPosts()
 
-card.innerHTML = `
+renderTagButtons()
 
-<h3>${title}</h3>
+})
 
-<p>${date}</p>
+})
 
-<p>${summary}</p>
+})
 
-<div class="tags">${tags}</div>
+function renderPosts(filter="all"){
 
-<a href="posts/${file.name}">Read</a>
+container.innerHTML=""
+
+let sorted = [...posts]
+
+/* sort newest first by default */
+
+sorted.sort((a,b)=>
+new Date(b.date) - new Date(a.date)
+)
+
+sorted.forEach(post=>{
+
+if(filter==="all" || post.tags.includes(filter)){
+
+const card=document.createElement("div")
+
+card.className="card"
+
+card.dataset.date=post.date
+card.dataset.title=post.title
+
+card.innerHTML=`
+
+<h3>${post.title}</h3>
+
+<p>${post.date}</p>
+
+<p>${post.summary}</p>
+
+<div class="tags">${post.tags}</div>
+
+<a href="posts/${post.file}">Read</a>
 
 `
 
 container.appendChild(card)
 
-loadedCount++
-
-if(loadedCount === htmlFiles.length){
-
-renderTagButtons()
-
 }
 
 })
 
-})
-
-})
+}
 
 function renderTagButtons(){
 
 if(!tagContainer) return
 
-tagContainer.innerHTML =
-`<button onclick="filterTag('all')">All</button>`
+tagContainer.innerHTML=
+`<button class="active" onclick="filterTag('all')">All</button>`
 
-allTags.forEach(tag => {
+allTags.forEach(tag=>{
 
-tagContainer.innerHTML +=
+tagContainer.innerHTML+=
 `<button onclick="filterTag('${tag}')">${tag}</button>`
 
 })
@@ -108,23 +137,7 @@ tagContainer.innerHTML +=
 
 function filterTag(tag){
 
-const cards =
-document.querySelectorAll(".card")
-
-cards.forEach(card => {
-
-const tagText =
-card.querySelector(".tags")?.textContent || ""
-
-if(tag === "all" || tagText.includes(tag)){
-card.style.display = "block"
-}else{
-card.style.display = "none"
-}
-
-})
-
-/* active button */
+renderPosts(tag)
 
 document
 .querySelectorAll(".tag-filter button")
@@ -133,5 +146,58 @@ document
 document
 .querySelector(`.tag-filter button[onclick="filterTag('${tag}')"]`)
 ?.classList.add("active")
+
+}
+
+function sortPosts(type){
+
+let sorted=[...posts]
+
+if(type==="new"){
+
+sorted.sort((a,b)=>
+new Date(b.date) - new Date(a.date))
+
+}
+
+if(type==="old"){
+
+sorted.sort((a,b)=>
+new Date(a.date) - new Date(b.date))
+
+}
+
+if(type==="title"){
+
+sorted.sort((a,b)=>
+a.title.localeCompare(b.title))
+
+}
+
+container.innerHTML=""
+
+sorted.forEach(post=>{
+
+const card=document.createElement("div")
+
+card.className="card"
+
+card.innerHTML=`
+
+<h3>${post.title}</h3>
+
+<p>${post.date}</p>
+
+<p>${post.summary}</p>
+
+<div class="tags">${post.tags}</div>
+
+<a href="posts/${post.file}">Read</a>
+
+`
+
+container.appendChild(card)
+
+})
 
 }
