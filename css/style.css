@@ -1,15 +1,15 @@
 :root{
 
---accent:#6c63ff;
---accent2:#ff6ec7;
+--accent:#7a74ff;   /* 少し淡く */
+--accent2:#ff8ed1;  /* ピンクも柔らかく */
 
---bg:#fafafa;
+--bg:#fdfdff;       /* ほんのり青白 */
 --card:#ffffff;
 
---text:#111;
---soft:#777;
+--text:#222;
+--soft:#888;
 
---border:#e8e8e8;
+--border:#ececff;
 
 }
 
