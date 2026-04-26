@@ -501,3 +501,24 @@ border:1px solid var(--border);
 background:white;
 
 }
+
+/* ふわっと揺れるアニメーション */
+@keyframes floatWiggle {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-4px) rotate(-1deg); }
+  50%  { transform: translateY(-6px) rotate(1deg); }
+  75%  { transform: translateY(-4px) rotate(-0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* カードに適用 */
+.card:hover{
+  animation: floatWiggle 0.8s ease-in-out;
+  transform: translateY(-6px);
+  box-shadow:0 15px 35px rgba(255,150,100,0.2);
+}
+
+/* ボタンも少しだけ揺らす */
+.btn:hover{
+  animation: floatWiggle 0.6s ease-in-out;
+}
