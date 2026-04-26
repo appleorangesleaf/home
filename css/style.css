@@ -1,24 +1,29 @@
 :root{
 
---accent:#7a74ff;   /* 少し淡く */
---accent2:#ff8ed1;  /* ピンクも柔らかく */
+--accent:#8b7cff;
+--accent2:#ff9ad5;
 
---bg:#fdfdff;       /* ほんのり青白 */
+--bg:#fdfcff;
 --card:#ffffff;
 
 --text:#222;
 --soft:#888;
 
---border:#ececff;
+--border:#eee;
 
 }
 
+/* 全体 */
+
 body{
 
-font-family: "Inter",sans-serif;
+font-family: "Inter","Hiragino Maru Gothic ProN",sans-serif;
 margin:0;
-background:linear-gradient(180deg,#ffffff,#f7f8ff);
+
+background:linear-gradient(180deg,#ffffff,#f5f6ff);
 color:var(--text);
+
+letter-spacing:0.03em;
 
 }
 
@@ -30,11 +35,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:20px 40px;
+padding:18px 40px;
 
-backdrop-filter:blur(10px);
+backdrop-filter:blur(14px);
 
-background:rgba(255,255,255,0.7);
+background:rgba(255,255,255,0.75);
 
 border-bottom:1px solid var(--border);
 
@@ -45,6 +50,8 @@ z-index:10;
 
 }
 
+/* ロゴ少し柔らかく */
+
 .logo{
 
 font-weight:700;
@@ -54,47 +61,7 @@ background:linear-gradient(90deg,var(--accent),var(--accent2));
 -webkit-background-clip:text;
 color:transparent;
 
-}
-
-/* nav links */
-
-.nav-links a{
-
-margin-left:25px;
-
-text-decoration:none;
-
-color:var(--soft);
-
-font-weight:500;
-
-transition:.25s;
-
-}
-
-.nav-links a:hover{
-
-color:var(--accent);
-
-}
-
-/* language switch */
-
-.lang-switch button{
-
-margin-left:10px;
-
-border:none;
-
-background:var(--accent);
-
-color:white;
-
-padding:6px 10px;
-
-border-radius:6px;
-
-cursor:pointer;
+letter-spacing:1px;
 
 }
 
@@ -104,33 +71,36 @@ cursor:pointer;
 
 text-align:center;
 
-padding:140px 20px;
+padding:160px 20px;
 
 }
 
 .hero h1{
 
-font-size:60px;
+font-size:64px;
 
-margin-bottom:10px;
+margin-bottom:15px;
 
 background:linear-gradient(90deg,var(--accent),var(--accent2));
 
 -webkit-background-clip:text;
-
 color:transparent;
+
+line-height:1.2;
 
 }
 
 .hero p{
 
 color:var(--soft);
-
 font-size:18px;
+
+max-width:500px;
+margin:auto;
 
 }
 
-/* buttons */
+/* ボタンちょいふわっと */
 
 .btn{
 
@@ -138,9 +108,9 @@ display:inline-block;
 
 margin:10px;
 
-padding:12px 26px;
+padding:13px 28px;
 
-border-radius:10px;
+border-radius:14px;
 
 background:linear-gradient(90deg,var(--accent),var(--accent2));
 
@@ -150,49 +120,21 @@ text-decoration:none;
 
 font-weight:500;
 
-transition:.25s;
+transition:.3s;
+
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
 
 }
 
 .btn:hover{
 
-transform:translateY(-3px);
+transform:translateY(-4px) scale(1.02);
 
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
-}
-
-/* PAGE TITLE */
-
-.page-title{
-
-text-align:center;
-
-font-size:40px;
-
-margin-top:60px;
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
 
 }
 
-/* GRID */
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-padding:60px;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-/* CARD */
+/* カードを「作品」っぽく */
 
 .card{
 
@@ -200,11 +142,11 @@ background:var(--card);
 
 border:1px solid var(--border);
 
-border-radius:14px;
+border-radius:18px;
 
 padding:20px;
 
-transition:.3s;
+transition:.35s;
 
 position:relative;
 
@@ -212,104 +154,68 @@ overflow:hidden;
 
 }
 
+/* 上のラインを少し細く繊細に */
+
 .card::before{
 
 content:"";
 
 position:absolute;
 
-height:3px;
+height:2px;
 
 width:100%;
 
 top:0;
-
 left:0;
 
 background:linear-gradient(90deg,var(--accent),var(--accent2));
+
+opacity:0.8;
 
 }
 
 .card:hover{
 
-transform:translateY(-6px);
+transform:translateY(-8px);
 
-box-shadow:0 15px 35px rgba(0,0,0,0.1);
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
 
 }
+
+/* 画像やわらかく */
 
 .card img{
 
 width:100%;
 
-border-radius:8px;
+border-radius:12px;
 
-margin-bottom:10px;
-
-}
-
-.card h3{
-
-margin:5px 0;
+margin-bottom:12px;
 
 }
 
-.card a{
+/* タグを少し優しく */
 
-text-decoration:none;
+.tags span{
 
-color:var(--accent);
+font-size:12px;
+
+padding:5px 12px;
+
+border-radius:20px;
+
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+
+color:white;
 
 font-weight:500;
 
-}
-
-/* ABOUT */
-
-.about{
-
-max-width:800px;
-
-margin:auto;
-
-padding:80px 20px;
+opacity:0.9;
 
 }
 
-.about h1{
-
-font-size:42px;
-
-}
-
-.about p{
-
-color:var(--soft);
-
-}
-
-/* FOOTER */
-
-footer{
-
-text-align:center;
-
-padding:40px;
-
-color:var(--soft);
-
-border-top:1px solid var(--border);
-
-margin-top:80px;
-
-}
-
-.search-box{
-
-text-align:center;
-margin:30px;
-
-}
+/* 検索もふんわり */
 
 .search-box input{
 
@@ -317,13 +223,15 @@ width:300px;
 
 padding:12px 16px;
 
-border-radius:10px;
+border-radius:14px;
 
-border:1px solid #ddd;
+border:1px solid #eee;
 
 font-size:14px;
 
-transition:0.2s;
+transition:0.25s;
+
+background:#fff;
 
 }
 
@@ -331,169 +239,26 @@ transition:0.2s;
 
 outline:none;
 
-border-color:#6c63ff;
+border-color:var(--accent);
 
-box-shadow:0 0 0 3px rgba(108,99,255,0.1);
-
-}
-
-.social{
-
-display:flex;
-gap:15px;
+box-shadow:0 0 0 4px rgba(139,124,255,0.12);
 
 }
 
-.social a{
+/* フッター */
 
-text-decoration:none;
-
-color:#555;
-
-font-size:14px;
-
-transition:0.2s;
-
-}
-
-.social a:hover{
-
-color:#6c63ff;
-
-}
-
-.social i{
-
-font-size:20px;
-
-margin-left:10px;
-
-color:#555;
-
-transition:0.2s;
-
-}
-
-.social i:hover{
-
-color:#6c63ff;
-
-transform:scale(1.2);
-
-}
-
-/* TAG FILTER */
-
-.tag-filter{
+footer{
 
 text-align:center;
 
-margin-top:30px;
-margin-bottom:10px;
-
-}
-
-.tag-filter button{
-
-margin:5px;
-
-padding:6px 14px;
-
-border-radius:20px;
-
-border:1px solid var(--border);
-
-background:white;
+padding:50px;
 
 color:var(--soft);
+
+border-top:1px solid var(--border);
+
+margin-top:100px;
 
 font-size:13px;
-
-cursor:pointer;
-
-transition:0.25s;
-
-}
-
-.tag-filter button:hover{
-
-background:linear-gradient(90deg,var(--accent),var(--accent2));
-
-color:white;
-
-border-color:transparent;
-
-transform:translateY(-2px);
-
-}
-
-/* POST TAGS */
-
-.tags{
-
-margin:10px 0;
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:6px;
-
-}
-
-.tags span{
-
-font-size:12px;
-
-padding:4px 10px;
-
-border-radius:12px;
-
-background:linear-gradient(90deg,var(--accent),var(--accent2));
-
-color:white;
-
-font-weight:500;
-
-}
-
-/* fallback (comma text) */
-
-.tags{
-
-font-size:12px;
-
-color:var(--soft);
-
-}
-
-/* active tag */
-
-.tag-filter button.active{
-
-background:linear-gradient(90deg,var(--accent),var(--accent2));
-color:white;
-border-color:transparent;
-
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
-
-}
-
-.sort-box{
-
-text-align:center;
-margin-top:10px;
-
-}
-
-.sort-box select{
-
-padding:8px 12px;
-
-border-radius:8px;
-
-border:1px solid var(--border);
-
-background:white;
 
 }
